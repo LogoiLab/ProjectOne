@@ -1,4 +1,13 @@
-use part_list;
+use part_list::PartList;
+use std::fs::File;
+use std::time::SystemTime;
+
+pub struct Data {
+    part_list: PartList,
+    database_path: File,
+    import_path: File,
+    time: SystemTime,
+}
 
 pub fn display() {
     unimplemented!()

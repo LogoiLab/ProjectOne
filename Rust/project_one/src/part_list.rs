@@ -1,9 +1,6 @@
 use part;
 use part::Part;
-
 use prettytable::Table;
-use prettytable::row::Row;
-use prettytable::cell::Cell;
 
 pub struct PartList {
     list: Vec<part::Part>
