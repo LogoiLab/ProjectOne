@@ -20,10 +20,15 @@ pub fn call() -> Response {
     let buffer = stdin.lock().lines().next().unwrap().unwrap();
     let mut out: String = String::new();
 
-    match &buffer.as_str() {
-        &"exit" => cont = false,
-        &"price" => out = (manipulator::get_price(String::from("my part"))).to_string(),
-        _ => panic!("invalid input"),
+    match &buffer.to_lowercase().as_str() {
+        &"display" => manipulator::display(),
+        &"enter" => manipulator::enter(),
+        &"quit" => cont = false,
+        &"read" => manipulator::read(),
+        &"sell" => manipulator::sell(),
+        &"sortname" => manipulator::sort_by_name(),
+        &"sortnumber" => manipulator::sort_by_number(),
+        _ => println!("Invalid input, try again."),
     };
     //temp
     Response{out: out, cont: cont}

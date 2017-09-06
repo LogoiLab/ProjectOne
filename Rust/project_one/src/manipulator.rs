@@ -1,5 +1,20 @@
 use part_list;
 
-pub fn get_price(part_name: String) -> f64 {
-    part_list::get_price(String::from(part_name.trim()))
+pub fn display() {
+    unimplemented!()
+}
+pub fn enter() {
+    unimplemented!()
+}
+pub fn read() {
+    unimplemented!()
+}
+pub fn sell() {
+    unimplemented!()
+}
+pub fn sort_by_name() {
+    unimplemented!()
+}
+pub fn sort_by_number() {
+    unimplemented!()
 }
