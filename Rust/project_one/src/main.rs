@@ -17,5 +17,5 @@ pub fn main() {
         cont = response.value().cont;
         println!("{}", response.value().out);
     }
-    
+
 }
