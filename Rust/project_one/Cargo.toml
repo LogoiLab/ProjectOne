@@ -4,4 +4,5 @@ version = "0.1.0"
 authors = ["Chad Baxter <cbaxter@mail.umw.edu>"]
 
 [dependencies]
+chrono = "*"
 prettytable-rs = "*"
