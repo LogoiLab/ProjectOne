@@ -1,11 +1,12 @@
 use manipulator;
-
+use part_list::PartList;
 use std::io;
 use std::io::prelude::*;
 
 pub struct Response {
-    pub out: String,
-    pub cont: bool
+    pub cont: bool,
+    pub help: bool,
+    pub list: PartList
 }
 
 impl Response {
@@ -14,22 +15,23 @@ impl Response {
     }
 }
 
-pub fn call() -> Response {
+pub fn call(part_list: PartList) -> Response {
+    print!("VVV\n");
     let stdin = io::stdin();
     let mut cont: bool = true;
+    let mut help: bool = false;
     let buffer = stdin.lock().lines().next().unwrap().unwrap();
-    let mut out: String = String::new();
 
-    match &buffer.to_lowercase().as_str() {
-        &"display" => manipulator::display(),
-        &"enter" => manipulator::enter(),
-        &"quit" => cont = false,
-        &"read" => manipulator::read(),
-        &"sell" => manipulator::sell(),
-        &"sortname" => manipulator::sort_by_name(),
-        &"sortnumber" => manipulator::sort_by_number(),
-        _ => println!("Invalid input, try again."),
+    let part_list: PartList = match &buffer.to_lowercase().trim() {
+        &"display" => manipulator::display(part_list),
+        &"enter" => manipulator::enter(part_list),
+        &"help" => {help = true; part_list},
+        &"quit" => {cont = false; manipulator::save(part_list)},
+        &"read" => manipulator::read(part_list),
+        &"sell" => manipulator::sell(part_list),
+        &"sortname" => manipulator::sort_by_name(part_list),
+        &"sortnumber" => manipulator::sort_by_number(part_list),
+        _ => {println!("Invalid input, try again."); part_list},
     };
-    //temp
-    Response{out: out, cont: cont}
+    Response{cont: cont, help: help, list: part_list}
 }
