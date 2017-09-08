@@ -4,7 +4,7 @@ use part::Part;
 use part_list::PartList;
 use std::io;
 use std::io::prelude::*;
-use chrono::{Local, DateTime, TimeZone};
+use chrono::{Local, DateTime};
 use prettytable::Table;
 
 pub fn prompt(decorator: String) -> String {
