@@ -45,7 +45,7 @@ pub fn load_database(path: String) -> PartList {
 
 pub fn save_database(path: String, part_list: PartList) -> PartList {
 
-    let file = OpenOptions::new().write(true).append(false).open(path.as_str()).unwrap();
+    let file = OpenOptions::new().write(true).append(false).truncate(true).open(path.as_str()).unwrap();
     let mut file = LineWriter::new(file);
     for part in &part_list.list {
         let csv_line: String = String::from("") + part.part_name().as_str() + "," + part.part_number().to_string().as_str() + "," + part.list_price().to_string().as_str() + "," + part.sale_price().to_string().as_str() + "," + part.on_sale().to_string().as_str() + "," + part.quantity().to_string().as_str() + "\n";
