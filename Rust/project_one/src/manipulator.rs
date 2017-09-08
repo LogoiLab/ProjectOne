@@ -38,7 +38,8 @@ pub fn read(part_list: PartList) -> PartList {
 pub fn save(part_list: PartList) -> PartList {
     save_database(String::from("warehouseDB.txt"), part_list)
 }
-pub fn sell(part_list: PartList) -> PartList {
+pub fn sell(mut part_list: PartList) -> PartList {
+    let mut sellable: bool = false;
     let part_number: &i64 = &prompt(String::from("Part#:\n")).parse::<i64>().unwrap();
     {
         let mut table: Table = Table::new();
@@ -48,11 +49,18 @@ pub fn sell(part_list: PartList) -> PartList {
         if part.on_sale().eq(&true) {
             price = part.sale_price();
         }
-        let dt: DateTime<Local> = Local::now();
-        table.add_row(row![part.part_name().as_str(), part.part_number().to_string().as_str(), price.to_string().as_str(), dt.format("%b %-d, %-I:%M:%S").to_string().as_str()]);
-        table.printstd();
+        if part.quantity() > &0 {
+            sellable = true;
+            let dt: DateTime<Local> = Local::now();
+            table.add_row(row![part.part_name().as_str(), part.part_number().to_string().as_str(), price.to_string().as_str(), dt.format("%b %-d, %-I:%M:%S").to_string().as_str()]);
+            table.printstd();
+        } else {
+            println!("You don't have any to sell!");
+        }
     }
-    //part_list.decrement(part_number);
+    if sellable {
+        part_list.decrement(part_number);
+    }
     part_list
 }
 pub fn sort_by_name(mut part_list: PartList) -> PartList {

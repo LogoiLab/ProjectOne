@@ -17,10 +17,17 @@ impl PartList {
                 None => println!("Cannot remove item!"),
             };
     }
-    pub fn decrement(&self, part_number: &i64) {
-        //let mut part: &Part = self.get_by_number_mut(part_number);
-        //part.quantity_mut() = part.quantity_mut() - 1 as i64;
-        unimplemented!();
+    pub fn decrement(&mut self, part_number: &i64) {
+        let part: &mut Part = self.get_by_number_mut(part_number);
+        if part.quantity_mut() > &mut 0 {
+            *part.quantity_mut() -= 1;
+        } else {
+            panic!("Tried to decrement past zero!");
+        }
+    }
+    pub fn increment(&mut self, part_number: &i64) {
+        let part: &mut Part = self.get_by_number_mut(part_number);
+        *part.quantity_mut() += 1;
     }
     fn get_index_by_number(&self, part_number: &i64) -> Option<usize> {
         match self.list.binary_search_by(|part| part.part_number().cmp(part_number)) {
