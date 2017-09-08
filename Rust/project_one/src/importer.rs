@@ -19,6 +19,7 @@ pub fn import_line(mut part_list: PartList) -> PartList{
         quantity: split_csv.remove(0).trim().to_string().parse::<i64>().unwrap()
     };
     part_list.add(part);
+    part_list.dedup();
     part_list
 }
 pub fn import_file(path: String, mut part_list: PartList) -> PartList {
@@ -42,6 +43,7 @@ pub fn import_file(path: String, mut part_list: PartList) -> PartList {
             quantity: split_csv.remove(0).trim().to_string().parse::<i64>().unwrap()
         };
         part_list.add(part);
+        part_list.dedup();
     }
     part_list
 }

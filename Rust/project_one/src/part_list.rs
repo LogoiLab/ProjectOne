@@ -53,11 +53,12 @@ impl PartList {
     pub fn sort_by_name(&mut self) {
         self.list.sort_by(|origin, reference| origin.part_name().cmp(reference.part_name()))
     }
-
     pub fn sort_by_number(&mut self) {
         self.list.sort_by(|origin, reference| origin.part_number().cmp(reference.part_number()))
     }
-
+    pub fn dedup (&mut self) {
+        self.list.dedup_by(|origin, reference| origin.part_number().eq(reference.part_number()))
+    }
     pub fn print(&self) {
         let mut table: Table = Table::new();
         table.add_row(row!["Part Name", "Part Number", "Price", "Sale Price", "On Sale", "Quantity"]);

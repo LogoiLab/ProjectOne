@@ -40,11 +40,11 @@ pub fn load_database(path: String) -> PartList {
         };
         initial_database.1.add(part);
     }
+    initial_database.1.dedup();
     initial_database.1
 }
 
 pub fn save_database(path: String, part_list: PartList) -> PartList {
-
     let file = OpenOptions::new().write(true).append(false).truncate(true).open(path.as_str()).unwrap();
     let mut file = LineWriter::new(file);
     for part in &part_list.list {
