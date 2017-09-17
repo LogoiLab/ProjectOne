@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["main","Initializes and handles responses from interpreter."]],"mod":[["database_handler",""],["importer",""],["interpreter",""],["manipulator",""],["part",""],["part_list",""]]});

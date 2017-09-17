@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["PartList","Stores a vec of `part::Part`s."]]});

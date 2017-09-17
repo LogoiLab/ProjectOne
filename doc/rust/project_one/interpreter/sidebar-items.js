@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["call","Parses user input for key words. # Arguments * `part_list` - The current operable part_list."]],"struct":[["Response","The Response struct. Stores the current interpreter response."]]});

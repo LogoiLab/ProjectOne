@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `PartList` struct in crate `project_one`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, PartList">
+
+    <title>project_one::part_list::PartList - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc struct">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'>Struct PartList</p><div class="block items"><ul><li><a href="#fields">Fields</a></li><li><a href="#methods">Methods</a></li></ul></div><p class='location'><a href='../index.html'>project_one</a>::<wbr><a href='index.html'>part_list</a></p><script>window.sidebarCurrent = {name: 'PartList', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>project_one</a>::<wbr><a href='index.html'>part_list</a>::<wbr><a class="struct" href=''>PartList</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/project_one/part_list.rs.html#6-8' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct PartList {
+    pub list: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="../../project_one/part/struct.Part.html" title="struct project_one::part::Part">Part</a>&gt;,
+}</pre><div class='docblock'><p>Stores a vec of <code>part::Part</code>s.</p>
+</div><h2 id='fields' class='fields small-section-header'>
+                       Fields<a href='#fields' class='anchor'></a></h2><span id='structfield.list' class="structfield">
+                           <span id='list.v' class='invisible'>
+                           <code>list: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="../../project_one/part/struct.Part.html" title="struct project_one::part::Part">Part</a>&gt;</code>
+                           </span></span>
+                    <h2 id='methods' class='small-section-header'>
+                      Methods<a href='#methods' class='anchor'></a>
+                    </h2>
+                <h3 class='impl'><span class='in-band'><code>impl <a class="struct" href="../../project_one/part_list/struct.PartList.html" title="struct project_one::part_list::PartList">PartList</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/project_one/part_list.rs.html#11-100' title='goto source code'>[src]</a></span></h3>
+<div class='docblock'><p>PartList operators.</p>
+</div><div class='impl-items'><h4 id='method.add' class="method"><span id='add.v' class='invisible'><code>fn <a href='#method.add' class='fnname'>add</a>(&amp;mut self, part: <a class="struct" href="../../project_one/part/struct.Part.html" title="struct project_one::part::Part">Part</a>)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/project_one/part_list.rs.html#14-16' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Adds a part.</p>
+</div><h4 id='method.remove_by_number' class="method"><span id='remove_by_number.v' class='invisible'><code>fn <a href='#method.remove_by_number' class='fnname'>remove_by_number</a>(&amp;mut self, part_number: &amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.i64.html">i64</a>)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/project_one/part_list.rs.html#19-24' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Removes a part by number.</p>
+</div><h4 id='method.decrement' class="method"><span id='decrement.v' class='invisible'><code>fn <a href='#method.decrement' class='fnname'>decrement</a>(&amp;mut self, part_number: &amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.i64.html">i64</a>)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/project_one/part_list.rs.html#27-34' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Reduces a <code>quantity</code> after a sale.</p>
+</div><h4 id='method.increment' class="method"><span id='increment.v' class='invisible'><code>fn <a href='#method.increment' class='fnname'>increment</a>(&amp;mut self, part_number: &amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.i64.html">i64</a>)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/project_one/part_list.rs.html#37-40' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Increses a <code>quantity</code>.</p>
+</div><h4 id='method.get_by_number' class="method"><span id='get_by_number.v' class='invisible'><code>fn <a href='#method.get_by_number' class='fnname'>get_by_number</a>(&amp;self, part_number: &amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.i64.html">i64</a>) -&gt; &amp;<a class="struct" href="../../project_one/part/struct.Part.html" title="struct project_one::part::Part">Part</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/project_one/part_list.rs.html#51-54' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Gets a <code>Part</code> by part number.</p>
+</div><h4 id='method.get_by_number_mut' class="method"><span id='get_by_number_mut.v' class='invisible'><code>fn <a href='#method.get_by_number_mut' class='fnname'>get_by_number_mut</a>(&amp;mut self, part_number: &amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.i64.html">i64</a>) -&gt; &amp;mut <a class="struct" href="../../project_one/part/struct.Part.html" title="struct project_one::part::Part">Part</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/project_one/part_list.rs.html#57-60' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Gets a mutable <code>Part</code> by part number.</p>
+</div><h4 id='method.get_by_name' class="method"><span id='get_by_name.v' class='invisible'><code>fn <a href='#method.get_by_name' class='fnname'>get_by_name</a>(&amp;self, part_name: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>) -&gt; &amp;<a class="struct" href="../../project_one/part/struct.Part.html" title="struct project_one::part::Part">Part</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/project_one/part_list.rs.html#68-71' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Gets a <code>Part</code> by part name.</p>
+</div><h4 id='method.sort_by_name' class="method"><span id='sort_by_name.v' class='invisible'><code>fn <a href='#method.sort_by_name' class='fnname'>sort_by_name</a>(&amp;mut self)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/project_one/part_list.rs.html#74-76' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Sorts the <code>PartList</code> by part name.</p>
+</div><h4 id='method.sort_by_number' class="method"><span id='sort_by_number.v' class='invisible'><code>fn <a href='#method.sort_by_number' class='fnname'>sort_by_number</a>(&amp;mut self)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/project_one/part_list.rs.html#79-81' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Sorts the <code>PartList</code> by part number.</p>
+</div><h4 id='method.dedup' class="method"><span id='dedup.v' class='invisible'><code>fn <a href='#method.dedup' class='fnname'>dedup</a>(&amp;mut self)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/project_one/part_list.rs.html#84-86' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Deduplicates the <code>PartList</code>.</p>
+</div><h4 id='method.print' class="method"><span id='print.v' class='invisible'><code>fn <a href='#method.print' class='fnname'>print</a>(&amp;self)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/project_one/part_list.rs.html#89-98' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Pretty-prints all the elements of a <code>PartList</code>.</p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "project_one";
+    </script>
+    <script src="../../main.js"></script>
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

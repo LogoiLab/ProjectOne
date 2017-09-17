@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["import_file","Imports a specified file # Arguments * `path` - A string that represents the path to the database file. * `part_list` - The current operable PartList."],["import_line","Imports a single user-input line. # Arguments * `part_list` - The current operable part_list."]]});

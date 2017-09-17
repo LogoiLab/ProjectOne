@@ -1,0 +1,69 @@
+\documentclass{report}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{adjustbox}
+\usepackage{makecell}
+\usepackage{boldline}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{wrapfig}
+
+\begin{document}
+
+\title{Project One Specification}
+\author{Chad A. Baxter}
+
+\maketitle
+
+\section{Introduction}
+The project is designed as a database managment system for a simple store/shop warehouse. The software must be able to parse and edit values provided to it in a \textit{C}omma \textit{S}eparated \textit{V}alue format. A self-intuitive command line interface must be provided.
+
+\section{Classes}
+\subsection{Descriptions}
+\begin{description}
+  \item [Main] The entry point of the program. Initializes important program-wide objects and gives control of standard input to \textit{Interpreter}.
+  \item [Interpreter] Parses and handles user input. Insures user input values are valid and passes them to \textit{Manipulator}.
+  \item [Manipulator] Takes data from \textit{Interpreter} and runs the specified functions provided to it by all other helper classes.
+  \item [PartList] Handles all functions required to manipulate an \textit{ArrayList} of \textit{Part}s.
+  \item [Part] Stores all information in regards to a \textit{Part}. Gets stored in \textit{PartList}.
+  \item [Importer] Handles all data import including cli entries and file import parsing.
+  \item [DatabaseHandler] Handles all persistence operations.
+\end{description}
+
+\subsection{Fields}
+An important feature of this design is that the only fields that need to exist are fields for \textit{PartList} and \textit{Part}. This reduces overhead and allows most other classes to remain static.
+
+\begin{center}
+  \begin{tabular}{ | l | l | }
+    \hline
+    \textbf{PartList} & \textbf{Part} \\ \hline \hline
+    list: \textit{ArrayList<Part>} & partName: \textit{String} \\ \hline
+    & partNumber: \textit{Long} \\ \hline
+    & listPrice: \textit{Double} \\ \hline
+    & salePrice: \textit{Double} \\ \hline
+    & onSale: \textit{Boolean} \\ \hline
+    & quantity: \textit{Integer} \\ \hline
+  \end{tabular}
+\end{center}
+
+\clearpage
+
+\subsection{Methods}
+The list of methods contains names and parameters for each method as well as return types. These are subject to change as is the nature of programming larger projects.\\
+\textit{Key: * = all field names from a class descriptor.}
+\begin{description}
+  \item [Main:] \textbf{main}:\textit{String[]} $\rightarrow$ \textit{void}
+  \item [Interpreter:] \textbf{call}:\textit{PartList} $\rightarrow$ \textit{PartList}
+  \item [Manipulator:] \textbf{prompt}:\textit{String} $\rightarrow$ \textit{PartList}; \textbf{display}:\textit{PartList} $\rightarrow$ \textit{PartList};\\
+    \textbf{enter}:\textit{PartList} $\rightarrow$ \textit{PartList}; \textbf{read}:\textit{PartList} $\rightarrow$ \textit{PartList};\\
+    \textbf{save}:\textit{PartList} $\rightarrow$ \textit{PartList}; \textbf{read}:\textit{PartList} $\rightarrow$ \textit{PartList};\\
+    \textbf{save}:\textit{PartList} $\rightarrow$ \textit{PartList}; \textbf{sell}:\textit{PartList} $\rightarrow$ \textit{PartList};\\
+    \textbf{sortByName}:\textit{PartList} $\rightarrow$ \textit{PartList}; \textbf{sortByNumber}:\textit{PartList} $\rightarrow$ \textit{PartList}
+  \item [PartList:] \textbf{getList}:\textit{void} $\rightarrow$ \textit{ArrayList<Part>}
+  \item [Part:] \textbf{get*}:\textit{void} $\rightarrow$ \textit{*}; \textbf{set*}:\textit{void} $\rightarrow$ \textit{*}
+  \item [Importer:] \textbf{importLine}:\textit{PartList, String} $\rightarrow$ \textit{PartList};\\
+    \textbf{importFile}:\textit{PartList, String} $\rightarrow$ \textit{PartList}
+  \item [DatabaseHandler:] \textbf{save}:\textit{PartList} $\rightarrow$ \textit{void}; \textbf{load}:\textit{void} $\rightarrow$ \textit{PartList}
+\end{description}
+
+\end{document}
