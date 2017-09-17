@@ -15,8 +15,9 @@ pub fn main() {
     let mut part_list: part_list::PartList = database_handler::load_database(String::from("warehouseDB.txt"));
     let mut cont: bool = true;
     let mut table: Table = Table::new();
+    table.add_row(row!["dedup","Manually deduplicate the database."]);
     table.add_row(row!["display","Look up a part's price."]);
-    table.add_row(row!["enter","Add a part to the part database."]);
+    table.add_row(row!["enter","Add a part to the database."]);
     table.add_row(row!["quit","Exit the application."]);
     table.add_row(row!["help","Displays this menu."]);
     table.add_row(row!["read","Provide the filename of an inventory list to import."]);

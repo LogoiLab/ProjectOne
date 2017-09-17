@@ -74,3 +74,10 @@ pub fn sort_by_number(mut part_list: PartList) -> PartList {
     part_list.print();
     part_list
 }
+
+pub fn dedup(mut part_list: PartList) -> PartList {
+    print!("deduplicating...");
+    part_list.dedup();
+    println!("done!");
+    part_list
+}
