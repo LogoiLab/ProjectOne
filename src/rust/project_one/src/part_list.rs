@@ -49,13 +49,13 @@ impl PartList {
 
     /// Gets a `Part` by part number.
     pub fn get_by_number(&self, part_number: &i64) -> &Part {
-        let index: usize = self.get_index_by_number(part_number).unwrap_or_default();
+        let index: usize = self.get_index_by_number(part_number).unwrap();
         &self.list[index]
     }
 
     /// Gets a mutable `Part` by part number.
     pub fn get_by_number_mut(&mut self, part_number: &i64) -> &mut Part {
-        let index: usize = self.get_index_by_number(part_number).unwrap_or_default();
+        let index: usize = self.get_index_by_number(part_number).unwrap();
         &mut self.list[index]
     }
 
@@ -66,7 +66,7 @@ impl PartList {
 
     /// Gets a `Part` by part name.
     pub fn get_by_name(&self, part_name: String) -> &Part {
-        let index: usize = self.get_index_by_name(part_name).unwrap_or_default();
+        let index: usize = self.get_index_by_name(part_name).unwrap();
         &self.list[index]
     }
 
@@ -90,7 +90,7 @@ impl PartList {
         let mut table: Table = Table::new();
         table.add_row(row!["Part Name", "Part Number", "Price", "Sale Price", "On Sale", "Quantity"]);
         for part in self.list.iter() {
-            table.add_row(row![part.part_name().as_str(), part.part_number().to_string().as_str(), part.list_price().to_string().as_str(), part.sale_price().to_string().as_str(), part.on_sale().to_string().as_str(), part.quantity().to_string().as_str()]);
+            table.add_row(row![part.part_name().as_str(), part.part_number().to_string().as_str(), String::from("$") + part.list_price().to_string().as_str(), String::from("$") + part.sale_price().to_string().as_str(), part.on_sale().to_string().as_str(), part.quantity().to_string().as_str()]);
         }
         table.set_format(*format::consts::FORMAT_NO_COLSEP);
         table.printstd();

@@ -73,7 +73,7 @@ pub fn sell(mut part_list: PartList) -> PartList {
         if part.quantity() > &0 {
             sellable = true;
             let dt: DateTime<Local> = Local::now();
-            table.add_row(row![part.part_name().as_str(), part.part_number().to_string().as_str(), price.to_string().as_str(), dt.format("%b %-d, %-I:%M:%S").to_string().as_str()]);
+            table.add_row(row![part.part_name().as_str(), part.part_number().to_string().as_str(), String::from("$") + price.to_string().as_str(), dt.format("%b %-d, %-I:%M:%S").to_string().as_str()]);
             table.printstd();
         } else {
             println!("You don't have any to sell!");
@@ -102,13 +102,13 @@ pub fn sort_by_number(mut part_list: PartList) -> PartList {
     part_list.print();
     part_list
 }
-
-/// Calls the `part_list::dedup()` function.
-/// # Arguments
-/// * `part_list` - The current operable PartList.
+/*
+// Calls the `part_list::dedup()` function.
+// # Arguments
+// * `part_list` - The current operable PartList.
 pub fn dedup(mut part_list: PartList) -> PartList {
     print!("deduplicating...");
     part_list.dedup();
     println!("done!");
     part_list
-}
+}*/
