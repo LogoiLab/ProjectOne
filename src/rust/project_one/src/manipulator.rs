@@ -29,7 +29,7 @@ pub fn display(part_list: PartList) -> PartList {
         if part.on_sale().eq(&true) {
             price = part.sale_price();
         }
-        table.add_row(row![part.part_name().as_str(), price.to_string().as_str()]);
+        table.add_row(row![part.part_name().as_str(), String::from("$") + price.to_string().as_str()]);
         table.printstd();
     }
     part_list
@@ -102,13 +102,13 @@ pub fn sort_by_number(mut part_list: PartList) -> PartList {
     part_list.print();
     part_list
 }
-/*
-// Calls the `part_list::dedup()` function.
-// # Arguments
-// * `part_list` - The current operable PartList.
+
+/// Calls the `part_list::dedup()` function.
+/// # Arguments
+/// * `part_list` - The current operable PartList.
 pub fn dedup(mut part_list: PartList) -> PartList {
     print!("deduplicating...");
     part_list.dedup();
     println!("done!");
     part_list
-}*/
+}

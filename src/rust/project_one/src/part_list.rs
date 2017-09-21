@@ -49,13 +49,19 @@ impl PartList {
 
     /// Gets a `Part` by part number.
     pub fn get_by_number(&self, part_number: &i64) -> &Part {
-        let index: usize = self.get_index_by_number(part_number).unwrap();
+        let index: usize = match self.get_index_by_number(part_number) {
+            Some(o) => o,
+            None => panic!("Index mismatch!"),
+        };
         &self.list[index]
     }
 
     /// Gets a mutable `Part` by part number.
     pub fn get_by_number_mut(&mut self, part_number: &i64) -> &mut Part {
-        let index: usize = self.get_index_by_number(part_number).unwrap();
+        let index: usize = match self.get_index_by_number(part_number) {
+            Some(o) => o,
+            None => panic!("Index mismatch!"),
+        };
         &mut self.list[index]
     }
 
@@ -66,7 +72,10 @@ impl PartList {
 
     /// Gets a `Part` by part name.
     pub fn get_by_name(&self, part_name: String) -> &Part {
-        let index: usize = self.get_index_by_name(part_name).unwrap();
+        let index: usize = match self.get_index_by_name(part_name) {
+            Ok(o) => o,
+            Err(e) => e,
+        };
         &self.list[index]
     }
 

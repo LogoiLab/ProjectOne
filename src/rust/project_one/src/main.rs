@@ -18,7 +18,7 @@ pub fn main() {
     let mut cont: bool = true;
     let mut table: Table = Table::new();
     // Create the help menu
-    //table.add_row(row!["dedup","Manually deduplicate the database."]);
+    table.add_row(row!["dedup","Manually deduplicate the database."]);
     table.add_row(row!["display","Look up a part's price."]);
     table.add_row(row!["enter","Add a part to the database."]);
     table.add_row(row!["quit","Exit the application."]);
