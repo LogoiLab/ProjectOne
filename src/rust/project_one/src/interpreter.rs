@@ -20,7 +20,7 @@ impl Response {
 /// Parses user input for key words.
 /// # Arguments
 /// * `part_list` - The current operable part_list.
-pub fn call(part_list: PartList) -> Response {
+pub fn call(mut part_list: PartList) -> Response {
     print!("VVV\n");
     let stdin = io::stdin();
     let mut cont: bool = true;
@@ -33,7 +33,7 @@ pub fn call(part_list: PartList) -> Response {
         &"display" => manipulator::display(part_list),
         &"enter" => manipulator::enter(part_list),
         &"help" => {help = true; part_list},
-        &"quit" => {cont = false; manipulator::save(part_list)},
+        &"quit" => {cont = false; part_list.dedup(); manipulator::save(part_list)},
         &"read" => manipulator::read(part_list),
         &"sell" => manipulator::sell(part_list),
         &"sortname" => manipulator::sort_by_name(part_list),
