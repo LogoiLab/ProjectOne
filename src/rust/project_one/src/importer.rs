@@ -13,6 +13,10 @@ pub fn import_line(mut part_list: PartList) -> PartList{
     let stdin = io::stdin();
     let buffer = stdin.lock().lines().next().unwrap().unwrap();
     let mut split_csv: Vec<&str> = buffer.split(",").collect::<Vec<&str>>();
+    if split_csv.len() < 6 {
+        println!("Invalid input, try again.");
+        return part_list;
+    }
     let part: Part = Part{
         part_name: split_csv.remove(0).trim().to_string(),
         part_number: split_csv.remove(0).trim().to_string().parse::<i64>().unwrap(),

@@ -18,7 +18,7 @@ impl PartList {
     /// Removes a part by number.
     pub fn remove_by_number(&mut self, part_number: &i64) {
             match self.get_index_by_number(part_number) {
-                Some(s) => println!("Part: {} was removed.", (self.list.remove(s)).part_name()),
+                Some(s) => println!("Part: {} was removed.", self.list.remove(s).part_name()),
                 None => println!("Cannot remove item!"),
             };
     }
@@ -82,7 +82,17 @@ impl PartList {
 
     /// Deduplicates the `PartList`.
     pub fn dedup (&mut self) {
-        self.list.dedup_by(|origin, reference| origin.part_number().eq(reference.part_number()))
+        self.list.dedup_by(|origin, reference|
+            if origin.part_number().eq(reference.part_number()) {
+                *reference.quantity_mut() += *origin.quantity_mut();
+                *reference.on_sale_mut() = *origin.on_sale_mut();
+                *reference.sale_price_mut() = *origin.sale_price_mut();
+                *reference.list_price_mut() = *origin.list_price_mut();
+                return true;
+            } else {
+                return false;
+            }
+        )
     }
 
     /// Pretty-prints all the elements of a `PartList`.
