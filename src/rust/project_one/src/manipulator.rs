@@ -20,8 +20,9 @@ pub fn prompt(decorator: String) -> String {
 /// Displays a part.
 /// # Arguments
 /// * `part_list` - The current operable PartList.
-pub fn display(part_list: PartList) -> PartList {
+pub fn display(mut part_list: PartList) -> PartList {
     {
+        part_list.sort_by_name();
         let mut table: Table = Table::new();
         table.add_row(row!["Part Name", "Price"]);
         let part: &Part = &mut part_list.get_by_name(prompt(String::from("Part name:\n")));
@@ -60,6 +61,7 @@ pub fn save(part_list: PartList) -> PartList {
 /// # Arguments
 /// * `part_list` - The current operable PartList.
 pub fn sell(mut part_list: PartList) -> PartList {
+    part_list.sort_by_number();
     let mut sellable: bool = false;
     let part_number: &i64 = &prompt(String::from("Part#:\n")).parse::<i64>().unwrap();
     {
