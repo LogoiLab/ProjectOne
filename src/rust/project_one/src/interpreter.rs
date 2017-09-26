@@ -29,7 +29,7 @@ pub fn call(mut part_list: PartList) -> Response {
 
     let part_list: PartList = match &buffer.to_lowercase().trim() {
         &"again" => {println!("Haha very funny."); part_list},
-        //&"dedup" => manipulator::dedup(part_list),
+        &"dedup" => manipulator::dedup(part_list),
         &"display" => manipulator::display(part_list),
         &"enter" => manipulator::enter(part_list),
         &"help" => {help = true; part_list},
