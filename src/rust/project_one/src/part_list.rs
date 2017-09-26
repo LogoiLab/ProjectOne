@@ -91,6 +91,7 @@ impl PartList {
 
     /// Deduplicates the `PartList`.
     pub fn dedup (&mut self) {
+        self.sort_by_number();
         self.list.dedup_by(|origin, reference|
             if origin.part_number().eq(reference.part_number()) {
                 *reference.quantity_mut() += *origin.quantity_mut();
